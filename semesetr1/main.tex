@@ -1,0 +1,58 @@
+\documentclass[a4paper, oneside, 14pt]{scrreprt} 
+
+\usepackage{geometry}
+\geometry{
+    inner=15mm, outer=15mm, top=20mm, bottom=25mm
+}
+
+\usepackage{subfiles}
+\input{preamble.tex}
+
+
+\begin{document}
+        \begin{titlepage}
+        \thispagestyle{empty}        % без колонтитулов/номера
+        % при желании — свои поля только для титула:
+        % \newgeometry{top=25mm,bottom=25mm,left=25mm,right=25mm}
+
+        % --- блок посередине страницы ---
+        \vspace*{\fill}               % растягиваемое пространство сверху
+        \begin{center}
+        {\Huge Механика Сплошных Сред\\[0.5em]
+            I семестр}\\[1em]
+            {\LARGE Автор курса: Коломийцев Г.В.}
+        \end{center}
+        \vspace*{\fill}               % и столько же снизу → блок ровно по центру
+
+        % --- блок у самого низа ---
+        \begin{center}
+            {\large
+                Студенты Группы Б23-221\\
+                2025 год               
+            }
+ 
+        \end{center}
+
+        % \restoregeometry % если использовали \newgeometry
+    \end{titlepage}
+    \tableofcontents
+    \chapter*{Авторы конспекта}
+    Данный конспект оформлен усиляими студентов группы Б23-221 в 2025/2026 году. 
+    \begin{itemize}
+        \item Биткулов Артем
+        \item Гайдамак Всеволод
+        \item Жилин Никита
+        \item Зарипов Илья
+        \item Иванов Михаил
+        \item Козельский Игорь
+        \item Куклин Федор
+        \item Рыбин Григорий
+        \item Сушков Матвей 
+    \end{itemize}
+    
+    
+    \chapter{Какая-то глава}
+    \input{chapter-01/section-01.tex}
+    \input{chapter-01/section-02.tex}
+    \input{chapter-01/section-03.tex}
+\end{document}

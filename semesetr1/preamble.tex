@@ -1,0 +1,102 @@
+\usepackage[T2A]{fontenc}
+\usepackage[utf8x]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{changepage}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{textcomp}
+\usepackage{hyperref}
+\usepackage{pgfplots}
+\usepackage{indentfirst}
+\usepackage{wrapfig}
+\usepackage{xcolor}
+\usepackage{etoolbox}
+
+% --- настройка ссылок для оглавления ---
+\hypersetup{
+    colorlinks=true, %set true if you want colored links
+    linktoc=all,     %set to all if you want both sections and subsections linked
+    linkcolor=blue,  %choose some color if you want links to stand out
+}
+\setcounter{tocdepth}{1}
+% --- настройка ссылок для оглавления ---
+
+% --- настройка глав ---
+\makeatletter
+\patchcmd{\chapter}{\clearpage}{}{}{}
+\makeatother
+
+% --- KOMA-Script title fonts ---
+\setkomafont{title}{\centering\bfseries\Huge}
+\setkomafont{subtitle}{\centering\Large}
+\setkomafont{author}{\centering\normalfont}
+\setkomafont{date}{\centering\normalfont}
+
+\renewcommand{\thechapter}{\Roman{chapter}}
+
+% Заголовок главы: номер сверху, название ниже, всё по центру
+\titleformat{\chapter}[display]
+  {\normalfont\LARGE\bfseries\filcenter} % общий формат + выравнивание по центру
+  {\chaptername~\thechapter}             % метка: "Глава I"
+  {1ex}                                  % вертикальный зазор между меткой и названием
+  {\Large}                               % формат самой строки названия
+% при желании можно добавить [after-code] пятым аргументом
+
+% Отступы вокруг заголовка
+\titlespacing*{\chapter}{0pt}{3ex plus 1ex}{2ex}
+
+\renewcommand{\thesection}{\arabic{section}}
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}      % или \thesection.\arabic{subsection}, если нужно 1.1
+\renewcommand{\thesubsubsection}{\thesection.\thesubsection.\arabic{subsubsection}}
+
+\titleformat{\section}
+  {\normalfont\Large\bfseries} % Форматирование
+  {§\thesection} % Нумерация
+  {1em} % Расстояние между номером и заголовком
+  {}
+
+% Настройка для подсекций
+\titleformat{\subsection}
+  {\normalfont\bfseries} % Форматирование
+  {\thesubsection} % Нумерация
+  {1em} % Расстояние между номером и заголовком
+  {}
+
+
+% --- настройка глав ---
+
+% --- Настройка колонтитула ---
+\pagestyle{fancy}
+\fancyhead{}\fancyfoot{}
+\renewcommand{\sectionmark}[1]{\markboth{\thesection\ #1}{}}
+\renewcommand{\subsectionmark}[1]{\markright{\thesubsection\ #1}}
+
+\fancyhead[EOC]{\nouppercase{\leftmark}}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\fancypagestyle{plain}{%
+  \fancyhead{}\fancyfoot{}
+  \fancyfoot[C]{\thepage}
+  \renewcommand{\footrulewidth}{0.4pt}
+  \renewcommand{\headrulewidth}{0pt}
+  
+}
+% --- Настройка колонтитула ---
+
+% --- Теоремы, определения ---
+\theoremstyle{definition}
+\newtheorem{theorem}{Теорема}
+\newtheorem{definition}{Определение}
+\newtheorem{lemma}{Лемма}
+\newtheorem*{remark}{Замечание}
+
+\newcounter{case}
+
+
+% --- Теоремы, определения ---
