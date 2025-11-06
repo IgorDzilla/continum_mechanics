@@ -1,2 +1,3 @@
 ﻿# continum_mechanics
-#by Kolomiez GV
+# by Kolomiez GV
+
