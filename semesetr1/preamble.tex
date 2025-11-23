@@ -1,6 +1,8 @@
-\usepackage[T2A]{fontenc}
-\usepackage[utf8x]{inputenc}
-\usepackage[russian]{babel}
+% xelatex
+
+\usepackage{fontspec}
+\usepackage[english,russian]{babel}
+\usepackage[protrusion=true,expansion=false]{microtype}
 \usepackage{fancyhdr}
 \usepackage{amsmath}
 \usepackage{amsthm}
@@ -13,8 +15,28 @@
 \usepackage{pgfplots}
 \usepackage{indentfirst}
 \usepackage{wrapfig}
+\usepackage{varwidth}
 \usepackage{xcolor}
 \usepackage{etoolbox}
+\usepackage{titlesec}
+\usepackage[scaled]{helvet}
+\usepackage{listings}
+\usepackage{setspace}
+\usepackage{subfiles}
+\usepackage{enumitem}
+\usepackage{cmap}
+\usepackage{indentfirst}
+\usepackage{tikz}
+\usepackage{pgfplots}
+
+\setmainfont{Times New Roman}
+\setsansfont{Arial}
+\setmonofont{Courier New}
+
+% На всякий случай явно назначим кириллицу теми же гарнитурами:
+\newfontfamily\cyrillicfont{Times New Roman}
+\newfontfamily\cyrillicfontsf{Arial}
+\newfontfamily\cyrillicfonttt{Courier New}
 
 % --- настройка ссылок для оглавления ---
 \hypersetup{
@@ -29,12 +51,6 @@
 \makeatletter
 \patchcmd{\chapter}{\clearpage}{}{}{}
 \makeatother
-
-% --- KOMA-Script title fonts ---
-\setkomafont{title}{\centering\bfseries\Huge}
-\setkomafont{subtitle}{\centering\Large}
-\setkomafont{author}{\centering\normalfont}
-\setkomafont{date}{\centering\normalfont}
 
 \renewcommand{\thechapter}{\Roman{chapter}}
 
@@ -87,6 +103,7 @@
   \renewcommand{\headrulewidth}{0pt}
   
 }
+
 % --- Настройка колонтитула ---
 
 % --- Теоремы, определения ---
@@ -98,5 +115,6 @@
 
 \newcounter{case}
 
-
-% --- Теоремы, определения ---
+% -- Свои команды --
+\newcommand{\grad}{\nabla}
+\newcommand{\Div}{\operatorname{div}}
